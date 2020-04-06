@@ -174,8 +174,9 @@ button:hover{
 
 #footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100px;
 }
 
@@ -199,10 +200,16 @@ button:hover{
 .BtnRedes:hover{
 
     border: 0;
+
 }
+
 .BtnRedesLink{
     font-size: 25;
     color: black;
+}
+
+.BtnRedesLink:hover{
+    font-size: 35px;
 }
 
 @keyframes rotating {
