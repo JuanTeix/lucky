@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Josefin+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./fonts.css">
+    <title>Sorteo Gratis</title>
+</head>
+<body>
+    <header id="ContainerHeader"> 
+        <figure class="ContainerHeaderFigure">
+            <img src="./img/logo.png" alt="logo" class="ContainerHeaderImg">
+        </figure>
+
+        <nav class="ContainerHeaderNav">
+            <ul class="ContainerHeaderUl">
+                <li class="ContainerHeaderLi"><a href="#" class="ContainerHeaderLia">Contactame</a></li>
+            </ul>
+        </nav>
+    </header>
+
+        <Section id="ContainerSeccion">
+            <h1 class="ContainerSeccionTitel">Sorteo por nombres al azar</h1>
+            <div id="ContainerSeccionHead">
+                <textarea name="participantes" class="ContainerSeccionTextArea" cols="30" rows="9"
+                placeholder="Ingresa los nombre de los participantes separados por un salto de linea"></textarea>
+            </div>
+            
+            <div id="ContainerSectionWinDivImg" class="hide">
+                <p class="ContainerSectionWinDivP">El Ganador es:</p>
+                <img src="./img/logo.png" alt="logo" class="ContainerSectionImg ">
+            </div>
+
+            <div id="ContainerSectionWinDiv" class="hide">
+                <p class="NameWiner "></p>
+            </div>
+
+            <div id="ContainerSectionButton">
+                <button id="start" class="start">Empezar</button>
+                <button id="repetir" class="hide">Repetir sorteo</button>
+                <button id="nuevo" class="hide">Nuevo sorteo</button>
+
+            </div>
+
+        </Section>
+
+        <footer id="footer">
+            <div class="footerBy">
+                <p>By Juan Teixeira</p>
+            </div>            
+
+            <div id="ContainerRedes" >
+                <button  class="BtnRedes">
+                    <a class="BtnRedesLink icon-github" href="#" target="_blank"  ></a>
+                 </button>
+                 <button  class="BtnRedes">
+                    <a class="BtnRedesLink icon-twitter" href="#" target="_blank"  ></a>
+                 </button>
+                 <button  class="BtnRedes">
+                    <a class="BtnRedesLink icon-instagram" href="#" target="_blank"  ></a>
+                 </button>
+             </div>
+
+
+        </footer>
+
+    <script src="./app.js"></script>
+</body>
+</html>

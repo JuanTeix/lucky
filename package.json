@@ -1,0 +1,17 @@
+{
+  "name": "sorteo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juan Teixeira",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.1",
+    "node": "^13.11.0"
+  }
+}
