@@ -66,23 +66,49 @@ body{
 
 .ContainerSeccionH1{
     display: flex;
+    flex-direction: column;
     align-items: center;
+    margin-top: 10px;
     width: 100%;
-    height: 100px;
-    justify-content: center;
+    /* height: 100px; */
 }
+
 .ContainerSeccionTitel{
+    /* margin-top: 70px; */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
+    font-size: 30px;
     color: black;
     width: inherit;
     height: inherit;
     
 }
-#ContainerSeccionHead{
+
+.ContainerSeccionTitelP{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+
+}
+
+.ContainerSeccionTitelInput{
+   margin-top: 5px;
+   padding: 0 10px;
+   width: 360px;
+   height: 40px;
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+}
+
+.ContainerSeccionHead{
     margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 250px;
 }
 
 .ContainerSeccionTextArea{
@@ -242,6 +268,11 @@ button:hover{
         border-radius: 5px;
         font-size: 14px;
         font-weight: 600;
+    }
+    .ContainerSeccionTitel{
+        font-size: 30px;
+        justify-content: center;
+        text-align: center;
     }
  }
 

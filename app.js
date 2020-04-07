@@ -3,8 +3,11 @@ class sorteo{
         this.p = p ;
     }
      player(){
+         let titulo = document.querySelector('.ContainerSeccionTitelInput').value
         const player = document.querySelector('.ContainerSeccionTextArea').value
         if(player){
+            console.log(titulo)
+            document.querySelector('.ContainerSectionWinDivP').innerHTML = (titulo)
             Azar.rmClassImg()
             Azar.rmClassTxtArea()
             const playerArray = player.split("\n")
@@ -32,13 +35,21 @@ class sorteo{
     }
     
      rmClassTxtArea(){
-        if(ConSecTexAre.classList.contains('ContainerSeccionTextArea')){
-            ConSecTexAre.classList.remove("ContainerSeccionTextArea");
+        if(TextAre.classList.contains('ContainerSeccionTextArea')){
+            TextAre.classList.remove("ContainerSeccionTextArea");
+            ConSecTexAre.classList.remove('ContainerSeccionHead');
+            titelp.classList.remove('ContainerSeccionTitelP')
+            titelp.classList.add('hide')
             ConSecTexAre.classList.add("hide");
+            TextAre.classList.add("hide");
             
         }else{
+            TextAre.classList.remove("hide");
+            TextAre.classList.add("ContainerSeccionTextArea");
+            ConSecTexAre.classList.add('ContainerSeccionHead')
             ConSecTexAre.classList.remove("hide");
-            ConSecTexAre.classList.add("ContainerSeccionTextArea");
+            titelp.classList.add('ContainerSeccionTitelP')
+            titelp.classList.remove('hide')
         }
     }
 
@@ -63,7 +74,6 @@ class sorteo{
         }else{
             btnreplay.classList.add("hide")
             btnNuevo.classList.add("hide")
-            // btnreplay.classList.add("replay")
 
     }
 }   
@@ -77,7 +87,6 @@ class sorteo{
             Divimg.classList.add("hide");
             btnreplay.classList.remove("start");
             btnreplay.classList.add("hide");
-
         }
     }
 
@@ -100,7 +109,11 @@ class sorteo{
              i ++
             let nombres = p[Math.floor(Math.random() * n )]
             console.log(nombres);
-            document.querySelector('.NameWiner').innerHTML = (nombres) 
+            if(nombres == ""){
+                Azar.moveName
+            }else{
+                document.querySelector('.NameWiner').innerHTML = (nombres) 
+            }
         }, 100)    
     }
 
@@ -130,7 +143,9 @@ class sorteo{
 }
 const Azar = new sorteo()
 const WinDiv = document.querySelector('#ContainerSectionWinDiv')
-const ConSecTexAre = document.querySelector('.ContainerSeccionTextArea')
+const ConSecTexAre = document.querySelector('#ContainerSeccionHead')
+const TextAre = document.querySelector('.ContainerSeccionTextArea')
+const titelp = document.querySelector('.ContainerSeccionTitelP')
 const btnStar = document.querySelector('#start')
 const btnreplay = document.querySelector('#repetir')
 const btnNuevo = document.querySelector('#nuevo')
