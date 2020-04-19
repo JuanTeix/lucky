@@ -183,7 +183,7 @@ body{
 }
 
 #start , #nuevo {
-    margin: 15px 0;
+    margin: 15px 10px;
     padding: 10px;
     width: 200px;
     border-radius: 5px;
@@ -195,7 +195,7 @@ body{
 }
 
 #repetir{
-    margin: 15px 0;
+    margin: 15px 10px;
     padding: 10px;
     width: 200px;
     border-radius: 5px;
@@ -203,6 +203,18 @@ body{
     font-weight: 600;
     color: #ffffff;
     background-color: #209415;
+    cursor: pointer;
+}
+
+#otroNombre{
+    margin: 15px 10px;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #E74C3C;
     cursor: pointer;
 }
 
@@ -261,7 +273,7 @@ button:hover{
         margin: 8px 0;
         flex-direction: column;
     }
-    #start , #nuevo, #repetir {
+    #start , #nuevo, #repetir, #otroNombre {
         margin: 10px 0;
         padding: 10px;
         width: 200px;

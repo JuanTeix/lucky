@@ -3,18 +3,24 @@ class sorteo{
         this.p = p ;
     }
      player(){
-         let titulo = document.querySelector('.ContainerSeccionTitelInput').value
-        const player = document.querySelector('.ContainerSeccionTextArea').value
+        let titulo = document.querySelector('.ContainerSeccionTitelInput').value
+        player = document.querySelector('.ContainerSeccionTextArea').value
         if(player){
-            console.log(titulo)
+            turno++
             document.querySelector('.ContainerSectionWinDivP').innerHTML = (titulo)
             Azar.rmClassImg()
             Azar.rmClassTxtArea()
             const playerArray = player.split("\n")
-            const numPar = playerArray.length
-            Azar.moveName(numPar,playerArray)
-        }else{
+            const formatArray = playerArray.filter(Boolean)
+            const numPar = formatArray.length
+            Azar.moveName(numPar,formatArray)
+        }else if(player == "" && turno > 0){
+            alert(`Uppp.! te haz quedado sin participantes.`)
+            location.reload();
+        }
+        else{
             alert(`Debe de añadir los participantes antes de empezar el sorteo`)
+            return false
         }
     }
     
@@ -71,9 +77,12 @@ class sorteo{
         if( btnreplay.classList.contains("hide")){
             btnreplay.classList.remove("hide")
             btnNuevo.classList.remove("hide")
+            btnOtroGanador.classList.remove("hide")
         }else{
             btnreplay.classList.add("hide")
             btnNuevo.classList.add("hide")
+            btnOtroGanador.classList.add("hide")
+
 
     }
 }   
@@ -102,27 +111,51 @@ class sorteo{
     
      moveName(n,p){
         Azar.rmClassBtn()
-         inter = setInterval(() => {
-             if(i == 50){
-                Azar.winer()
-             }
-             i ++
-            let nombres = p[Math.floor(Math.random() * n )]
-            console.log(nombres);
-            if(nombres == ""){
-                Azar.moveName
-            }else{
-                document.querySelector('.NameWiner').innerHTML = (nombres) 
+        inter = setInterval(()=> {
+            for (let i = 0; i < 50; i++) {
+                nombres = p[Math.floor(Math.random() * n )]
+                console.log(nombres);
             }
-        }, 100)    
+                positionGanador = ganadorList.length
+                if(nombres == ""){
+                    alert(`Uppp.! te haz quedado sin participantes.`)
+                    location.reload();
+                }else{
+                    ganadorList.push(nombres)
+                    document.querySelector('.NameWiner').innerHTML = (nombres) 
+                    Azar.winer()
+                    console.log(p);
+                    let index = p.indexOf(nombres)
+                    if(index > -1){
+                        p.splice(index, 1)
+                        let Arraystring =  p.join();
+                        let NewArray = Arraystring.replace(",", "\n")
+                        Azar.rmClassTxtArea()
+                        document.querySelector('.ContainerSeccionTextArea').value = (NewArray);
+                        Azar.rmClassTxtArea()
+                        return NewArray;
+                    }
+                }  
+        }, 500)
     }
-
     
      winer(){
         Azar.rmClassWinDiv()
         clearInterval(inter)
         Azar.rmBtnReplay()
     }
+
+    otherWin(){
+        i= 0
+        Azar.rmBtnReplay()
+        Azar.rmClassWinDiv()
+        Azar.rmClassBtn()
+        Azar.rmClassTxtArea()
+        Azar.rmClassImg()
+        Azar.player()
+
+    }
+
 
     replay(){
         i= 0
@@ -131,6 +164,8 @@ class sorteo{
         Azar.rmClassBtn()
         Azar.rmClassTxtArea()
         Azar.rmClassImg()
+        console.log("estos son los jugadores" + player)
+        document.querySelector('.ContainerSeccionTextArea').value = (player)
         Azar.player()
     }
 
@@ -149,12 +184,19 @@ const titelp = document.querySelector('.ContainerSeccionTitelP')
 const btnStar = document.querySelector('#start')
 const btnreplay = document.querySelector('#repetir')
 const btnNuevo = document.querySelector('#nuevo')
+const btnOtroGanador = document.querySelector('#otroNombre')
 const Divimg = document.querySelector('#ContainerSectionWinDivImg')
 const img = document.querySelector('.ContainerSectionImg')
 var inter
+let nombres
+let player
+let positionGanador
+let ganadorList = []
 let i = 0
+let turno = 0
 btnStar.onclick = () => Azar.start()
 btnreplay.onclick = () => Azar.replay()
 btnNuevo.onclick = () => Azar.newPlay()
+btnOtroGanador.onclick = () => Azar.otherWin()
 Azar.startConfig()
 
