@@ -136,7 +136,7 @@ class sorteo{
                         return NewArray;
                     }
                 }  
-        }, 500)
+        }, 2000)
     }
     
      winer(){
