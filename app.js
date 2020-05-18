@@ -128,8 +128,9 @@ class sorteo{
                     let index = p.indexOf(nombres)
                     if(index > -1){
                         p.splice(index, 1)
-                        let Arraystring =  p.join();
-                        let NewArray = Arraystring.replace(",", "\n")
+                        console.log(p);
+                        let Arraystring =  p.toString();
+                        let NewArray = Arraystring.replace(/,/g, "\n")
                         Azar.rmClassTxtArea()
                         document.querySelector('.ContainerSeccionTextArea').value = (NewArray);
                         Azar.rmClassTxtArea()
